@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <title>定时器按钮组件测试</title>
+  <link rel="stylesheet" href="timer-button.css">
+</head>
+<body>
+  <details open>
+    <summary>添加按钮</summary>
+    <form class="form-create-button">
+      <label>初始状态：</label>
+      <input type="radio" name="status" value="true"><label>启用</label>
+      <input type="radio" name="status" value="false" checked><label>禁用</label>
+      <br>
+      <label>禁用时长：</label>
+      <input type="number" min="0" max="100" value="6" autofocus>秒
+      <br>
+      <label>按钮文字：</label>
+      <input type="text" maxlength="5" value="同意" required>
+      <br>
+      <div>
+        <label>事件代码：</label>
+        <textarea cols="30" rows="10">alert('你终于同意了！');</textarea>
+      </div>
+      <input type="submit" value="添加">
+    </form>
+  </details>
+  <div class="main"></div>
+</body>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="timer-button.js"></script>
+<script>
+$(function() {
+  var radStatus,
+      txtTime  = $('details input[type="number"]'),
+      txtTitle = $('details input[type="text"]'),
+      txtCode  = $('details textarea'),
+      fmButton = $('details form');
+  fmButton.submit(function(e) {
+    e.preventDefault();
+    radStatus  = $('details input[type="radio"]:checked');
+    /*global timerButton:true*/
+    var btn = timerButton({
+      'container': 'div.main',
+      'enabled': radStatus.val() === 'true',
+      'duration': Number(txtTime.val()),
+      'text': txtTitle.val()
+    });
+    btn.on('timer-button-click', new Function(txtCode.val()));
+  });
+});
+</script>
+</html>

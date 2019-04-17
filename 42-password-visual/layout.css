@@ -1,0 +1,47 @@
+body {
+  font-family: 微软雅黑;
+  line-height: 2em;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.main {
+  width: 360px;
+  margin: 20px auto 0;
+}
+
+input[type="button"] {
+  width: 100px;
+  height: 50px;
+}
+.wd-password input {
+  font-size: 1.2em;
+}
+
+.wd-password input[type="password"] {
+  width: 220px;
+  margin: 0;
+}
+
+.wd-password input[type="text"] {
+  width: 185px;
+  height: 26px;
+  z-index: -10;
+  border: none;
+  position: relative;
+  left: 59px;
+  top: -66px;
+}
+
+.wd-password div {
+  width: 34px;
+  height: 28px;
+  position: relative;
+  top: -33px;
+  left: 245px;
+  z-index: 9;
+
+  background-size: contain;
+  backgroud-color:blue;
+
+}

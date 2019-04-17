@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>密码可见</title>
+  <link rel="stylesheet" href="layout.css">
+  <link rel="icon" href="https://i.wangding.in/favicon.ico" sizes="48x48" type="image/png">
+</head>
+<body>
+<input id="add-password" type="button" value="添加密码框">
+<input id="get-password" type="button" value="获得密码" disabled>
+<div class="main">
+</div>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="main.js"></script>
+<script>
+$(function(){
+  var $btnAddPwd = $('#add-password'),
+      $btnGetPwd = $('#get-password'),
+      pwdTextboxs = [];
+  /* global PasswordTextbox: true */
+  $btnAddPwd.click(function(){
+    var pwd = new PasswordTextbox({'container': 'div.main'});
+    pwdTextboxs.push(pwd);
+    $btnGetPwd.removeAttr('disabled');
+  });
+  $btnGetPwd.click(function() {
+    pwdTextboxs.forEach(function(pwd) {
+      alert(pwd.getPwd());
+    });
+  });
+});
+</script>
+</body>
+</html>

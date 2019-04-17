@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>定时器按钮测试页面</title>
+  <link rel="stylesheet" href="timer-button.css">
+  <link rel="icon" href="https://i.wangding.in/favicon.ico" sizes="48x48" type="image/png">
+</head>
+<body>
+<style>
+.main{
+  width:200px;
+  height:200px;
+  margin:0 auto;
+}
+</style>
+
+<div class="main1"></div>
+<div class="main2"></div>
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="timer-button.js"></script>
+<script>
+$(function(){
+  var $btnAdd1 = $('input[value="add timer-btn1"]'),
+      $btnAdd2 = $('input[value="add timer-btn2"]');
+
+      $btnAdd1.click(function(){
+        $timerBtn.init({
+          title:'发送验证码',
+          time:6,
+          clickHandler:function(){
+          alert('handle event through arguments!');
+          }
+        });
+      });
+});
+</script>
+</body>
+</html>
+
+
+
